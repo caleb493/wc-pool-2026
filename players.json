@@ -1,0 +1,101 @@
+[
+  {"id":1,"group":1,"name":"Kylian Mbappe","nationality":"France","flag":"🇫🇷","club":"Real Madrid","position":"FW","clubGoals":39,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":2,"group":1,"name":"Erling Haaland","nationality":"Norway","flag":"🇳🇴","club":"Manchester City","position":"FW","clubGoals":35,"clubAssists":10,"wcGoals":0,"wcAssists":0},
+  {"id":3,"group":1,"name":"Harry Kane","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Bayern Munich","position":"FW","clubGoals":36,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+  {"id":4,"group":1,"name":"Lamine Yamal","nationality":"Spain","flag":"🇪🇸","club":"Barcelona","position":"FW","clubGoals":22,"clubAssists":16,"wcGoals":0,"wcAssists":0},
+
+  {"id":5,"group":2,"name":"Michael Olise","nationality":"France","flag":"🇫🇷","club":"Bayern Munich","position":"FW","clubGoals":22,"clubAssists":14,"wcGoals":0,"wcAssists":0},
+  {"id":6,"group":2,"name":"Mohamed Salah","nationality":"Egypt","flag":"🇪🇬","club":"Liverpool","position":"FW","clubGoals":20,"clubAssists":12,"wcGoals":0,"wcAssists":0},
+  {"id":7,"group":2,"name":"Vinicius Jr","nationality":"Brazil","flag":"🇧🇷","club":"Real Madrid","position":"FW","clubGoals":18,"clubAssists":12,"wcGoals":0,"wcAssists":0},
+  {"id":8,"group":2,"name":"Jude Bellingham","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Real Madrid","position":"MF","clubGoals":18,"clubAssists":10,"wcGoals":0,"wcAssists":0},
+
+  {"id":9,"group":3,"name":"Bruno Fernandes","nationality":"Portugal","flag":"🇵🇹","club":"Manchester United","position":"MF","clubGoals":8,"clubAssists":20,"wcGoals":0,"wcAssists":0},
+  {"id":10,"group":3,"name":"Raphinha","nationality":"Brazil","flag":"🇧🇷","club":"Barcelona","position":"FW","clubGoals":16,"clubAssists":10,"wcGoals":0,"wcAssists":0},
+  {"id":11,"group":3,"name":"Cristiano Ronaldo","nationality":"Portugal","flag":"🇵🇹","club":"Al Nassr","position":"FW","clubGoals":22,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":12,"group":3,"name":"Jamal Musiala","nationality":"Germany","flag":"🇩🇪","club":"Bayern Munich","position":"MF","clubGoals":14,"clubAssists":10,"wcGoals":0,"wcAssists":0},
+
+  {"id":13,"group":4,"name":"Cole Palmer","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Chelsea","position":"FW","clubGoals":15,"clubAssists":10,"wcGoals":0,"wcAssists":0},
+  {"id":14,"group":4,"name":"Phil Foden","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Manchester City","position":"MF","clubGoals":12,"clubAssists":11,"wcGoals":0,"wcAssists":0},
+  {"id":15,"group":4,"name":"Florian Wirtz","nationality":"Germany","flag":"🇩🇪","club":"Bayer Leverkusen","position":"MF","clubGoals":14,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":16,"group":4,"name":"Bukayo Saka","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Arsenal","position":"FW","clubGoals":13,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+
+  {"id":17,"group":5,"name":"Lionel Messi","nationality":"Argentina","flag":"🇦🇷","club":"Inter Miami","position":"FW","clubGoals":13,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":18,"group":5,"name":"Robert Lewandowski","nationality":"Poland","flag":"🇵🇱","club":"Barcelona","position":"FW","clubGoals":15,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":19,"group":5,"name":"Federico Dimarco","nationality":"Italy","flag":"🇮🇹","club":"Inter Milan","position":"DEF","clubGoals":4,"clubAssists":16,"wcGoals":0,"wcAssists":0},
+  {"id":20,"group":5,"name":"Marcus Thuram","nationality":"France","flag":"🇫🇷","club":"Inter Milan","position":"FW","clubGoals":12,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+
+  {"id":21,"group":6,"name":"Ousmane Dembele","nationality":"France","flag":"🇫🇷","club":"Paris Saint-Germain","position":"FW","clubGoals":11,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":22,"group":6,"name":"Kai Havertz","nationality":"Germany","flag":"🇩🇪","club":"Arsenal","position":"FW","clubGoals":12,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":23,"group":6,"name":"Julian Alvarez","nationality":"Argentina","flag":"🇦🇷","club":"Atletico Madrid","position":"FW","clubGoals":11,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":24,"group":6,"name":"Kevin De Bruyne","nationality":"Belgium","flag":"🇧🇪","club":"Manchester City","position":"MF","clubGoals":5,"clubAssists":13,"wcGoals":0,"wcAssists":0},
+
+  {"id":25,"group":7,"name":"Lautaro Martinez","nationality":"Argentina","flag":"🇦🇷","club":"Inter Milan","position":"FW","clubGoals":13,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":26,"group":7,"name":"Son Heung-min","nationality":"South Korea","flag":"🇰🇷","club":"Tottenham Hotspur","position":"FW","clubGoals":12,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":27,"group":7,"name":"Christian Pulisic","nationality":"United States","flag":"🇺🇸","club":"AC Milan","position":"FW","clubGoals":11,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":28,"group":7,"name":"Pedri","nationality":"Spain","flag":"🇪🇸","club":"Barcelona","position":"MF","clubGoals":7,"clubAssists":9,"wcGoals":0,"wcAssists":0},
+
+  {"id":29,"group":8,"name":"Antoine Griezmann","nationality":"France","flag":"🇫🇷","club":"Atletico Madrid","position":"FW","clubGoals":11,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":30,"group":8,"name":"Goncalo Ramos","nationality":"Portugal","flag":"🇵🇹","club":"Paris Saint-Germain","position":"FW","clubGoals":13,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":31,"group":8,"name":"Dani Olmo","nationality":"Spain","flag":"🇪🇸","club":"Barcelona","position":"MF","clubGoals":9,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":32,"group":8,"name":"Federico Valverde","nationality":"Uruguay","flag":"🇺🇾","club":"Real Madrid","position":"MF","clubGoals":7,"clubAssists":9,"wcGoals":0,"wcAssists":0},
+
+  {"id":33,"group":9,"name":"Romelu Lukaku","nationality":"Belgium","flag":"🇧🇪","club":"Napoli","position":"FW","clubGoals":14,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":34,"group":9,"name":"Nico Williams","nationality":"Spain","flag":"🇪🇸","club":"Athletic Club","position":"FW","clubGoals":9,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":35,"group":9,"name":"Martin Odegaard","nationality":"Norway","flag":"🇳🇴","club":"Arsenal","position":"MF","clubGoals":7,"clubAssists":9,"wcGoals":0,"wcAssists":0},
+  {"id":36,"group":9,"name":"Cody Gakpo","nationality":"Netherlands","flag":"🇳🇱","club":"Liverpool","position":"FW","clubGoals":10,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+
+  {"id":37,"group":10,"name":"Trent Alexander-Arnold","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Real Madrid","position":"MF","clubGoals":5,"clubAssists":12,"wcGoals":0,"wcAssists":0},
+  {"id":38,"group":10,"name":"Theo Hernandez","nationality":"France","flag":"🇫🇷","club":"AC Milan","position":"DEF","clubGoals":6,"clubAssists":9,"wcGoals":0,"wcAssists":0},
+  {"id":39,"group":10,"name":"Achraf Hakimi","nationality":"Morocco","flag":"🇲🇦","club":"Paris Saint-Germain","position":"DEF","clubGoals":5,"clubAssists":10,"wcGoals":0,"wcAssists":0},
+  {"id":40,"group":10,"name":"Bernardo Silva","nationality":"Portugal","flag":"🇵🇹","club":"Manchester City","position":"MF","clubGoals":8,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+
+  {"id":41,"group":11,"name":"Christopher Nkunku","nationality":"France","flag":"🇫🇷","club":"Chelsea","position":"FW","clubGoals":12,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":42,"group":11,"name":"Alexander Isak","nationality":"Sweden","flag":"🇸🇪","club":"Newcastle United","position":"FW","clubGoals":12,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":43,"group":11,"name":"Xavi Simons","nationality":"Netherlands","flag":"🇳🇱","club":"RB Leipzig","position":"MF","clubGoals":9,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":44,"group":11,"name":"Leroy Sane","nationality":"Germany","flag":"🇩🇪","club":"Bayern Munich","position":"FW","clubGoals":9,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+
+  {"id":45,"group":12,"name":"Victor Osimhen","nationality":"Nigeria","flag":"🇳🇬","club":"Galatasaray","position":"FW","clubGoals":14,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":46,"group":12,"name":"Darwin Nunez","nationality":"Uruguay","flag":"🇺🇾","club":"Liverpool","position":"FW","clubGoals":10,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":47,"group":12,"name":"Endrick","nationality":"Brazil","flag":"🇧🇷","club":"Real Madrid","position":"FW","clubGoals":8,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":48,"group":12,"name":"Marcus Rashford","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Aston Villa","position":"FW","clubGoals":9,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+
+  {"id":49,"group":13,"name":"Warren Zaire-Emery","nationality":"France","flag":"🇫🇷","club":"Paris Saint-Germain","position":"MF","clubGoals":5,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":50,"group":13,"name":"Gavi","nationality":"Spain","flag":"🇪🇸","club":"Barcelona","position":"MF","clubGoals":4,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":51,"group":13,"name":"Fermin Lopez","nationality":"Spain","flag":"🇪🇸","club":"Barcelona","position":"MF","clubGoals":6,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+  {"id":52,"group":13,"name":"Noni Madueke","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Chelsea","position":"FW","clubGoals":8,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+
+  {"id":53,"group":14,"name":"Declan Rice","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Arsenal","position":"MF","clubGoals":5,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":54,"group":14,"name":"Nicolo Barella","nationality":"Italy","flag":"🇮🇹","club":"Inter Milan","position":"MF","clubGoals":5,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":55,"group":14,"name":"Hakan Calhanoglu","nationality":"Turkey","flag":"🇹🇷","club":"Inter Milan","position":"MF","clubGoals":7,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+  {"id":56,"group":14,"name":"Hakim Ziyech","nationality":"Morocco","flag":"🇲🇦","club":"Galatasaray","position":"FW","clubGoals":7,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+
+  {"id":57,"group":15,"name":"Alphonso Davies","nationality":"Canada","flag":"🇨🇦","club":"Bayern Munich","position":"DEF","clubGoals":3,"clubAssists":9,"wcGoals":0,"wcAssists":0},
+  {"id":58,"group":15,"name":"Joao Cancelo","nationality":"Portugal","flag":"🇵🇹","club":"Barcelona","position":"DEF","clubGoals":3,"clubAssists":9,"wcGoals":0,"wcAssists":0},
+  {"id":59,"group":15,"name":"Denzel Dumfries","nationality":"Netherlands","flag":"🇳🇱","club":"Inter Milan","position":"DEF","clubGoals":4,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":60,"group":15,"name":"Timothy Weah","nationality":"United States","flag":"🇺🇸","club":"Juventus","position":"FW","clubGoals":6,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+
+  {"id":61,"group":16,"name":"Memphis Depay","nationality":"Netherlands","flag":"🇳🇱","club":"Atletico Madrid","position":"FW","clubGoals":8,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":62,"group":16,"name":"Kephren Thuram","nationality":"France","flag":"🇫🇷","club":"Juventus","position":"MF","clubGoals":4,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":63,"group":16,"name":"Alvaro Morata","nationality":"Spain","flag":"🇪🇸","club":"AC Milan","position":"FW","clubGoals":8,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":64,"group":16,"name":"Richarlison","nationality":"Brazil","flag":"🇧🇷","club":"Tottenham Hotspur","position":"FW","clubGoals":7,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+
+  {"id":65,"group":17,"name":"Ferran Torres","nationality":"Spain","flag":"🇪🇸","club":"Barcelona","position":"FW","clubGoals":6,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":66,"group":17,"name":"Eduardo Camavinga","nationality":"France","flag":"🇫🇷","club":"Real Madrid","position":"MF","clubGoals":3,"clubAssists":8,"wcGoals":0,"wcAssists":0},
+  {"id":67,"group":17,"name":"Rafael Leao","nationality":"Portugal","flag":"🇵🇹","club":"AC Milan","position":"FW","clubGoals":7,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":68,"group":17,"name":"Lucas Paqueta","nationality":"Brazil","flag":"🇧🇷","club":"West Ham United","position":"MF","clubGoals":5,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+
+  {"id":69,"group":18,"name":"Jonathan David","nationality":"Canada","flag":"🇨🇦","club":"Lille","position":"FW","clubGoals":12,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":70,"group":18,"name":"Youssef En-Nesyri","nationality":"Morocco","flag":"🇲🇦","club":"Fenerbahce","position":"FW","clubGoals":10,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":71,"group":18,"name":"Ademola Lookman","nationality":"Nigeria","flag":"🇳🇬","club":"Atalanta","position":"FW","clubGoals":8,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":72,"group":18,"name":"Ivan Toney","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Al-Ahli","position":"FW","clubGoals":8,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+
+  {"id":73,"group":19,"name":"Alexis Mac Allister","nationality":"Argentina","flag":"🇦🇷","club":"Liverpool","position":"MF","clubGoals":6,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":74,"group":19,"name":"Andrew Robertson","nationality":"Scotland","flag":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","club":"Liverpool","position":"DEF","clubGoals":2,"clubAssists":7,"wcGoals":0,"wcAssists":0},
+  {"id":75,"group":19,"name":"Brennan Johnson","nationality":"Wales","flag":"🏴󠁧󠁢󠁷󠁬󠁳󠁿","club":"Tottenham Hotspur","position":"FW","clubGoals":7,"clubAssists":3,"wcGoals":0,"wcAssists":0},
+  {"id":76,"group":19,"name":"Gio Reyna","nationality":"United States","flag":"🇺🇸","club":"Nottingham Forest","position":"MF","clubGoals":4,"clubAssists":6,"wcGoals":0,"wcAssists":0},
+
+  {"id":77,"group":20,"name":"Jack Grealish","nationality":"England","flag":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","club":"Manchester City","position":"MF","clubGoals":4,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":78,"group":20,"name":"Scott McTominay","nationality":"Scotland","flag":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","club":"Napoli","position":"MF","clubGoals":5,"clubAssists":4,"wcGoals":0,"wcAssists":0},
+  {"id":79,"group":20,"name":"Mikel Merino","nationality":"Spain","flag":"🇪🇸","club":"Arsenal","position":"MF","clubGoals":4,"clubAssists":5,"wcGoals":0,"wcAssists":0},
+  {"id":80,"group":20,"name":"Tyler Adams","nationality":"United States","flag":"🇺🇸","club":"Bournemouth","position":"MF","clubGoals":2,"clubAssists":5,"wcGoals":0,"wcAssists":0}
+]

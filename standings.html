@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WC 2026 Pool — Standings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="badge">WC 2026</span>
+    <h1>Fantasy Pool</h1>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Groups</a>
+    <a href="standings.html" class="active">Standings</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="tournament-banner">📊 Live Standings — Updated Weekly</div>
+  <h2>Pool Standings</h2>
+  <p>Goals = 2 pts &nbsp;·&nbsp; Assists = 1 pt &nbsp;·&nbsp; Click a participant to see their squad</p>
+</div>
+
+<main class="standings-container">
+  <div class="standings-meta">
+    <div class="last-updated" id="last-updated">Last updated: —</div>
+    <div style="font-size:0.8rem; color:var(--grey)">
+      <span style="color:var(--green); font-weight:700" id="tournament-status">Pre-tournament</span>
+      — World Cup kicks off 11 June 2026
+    </div>
+  </div>
+
+  <div id="standings-content">
+    <div class="state-msg" id="loading-msg">
+      <div class="icon">⏳</div>
+      <h3>Loading standings…</h3>
+      <p>Fetching data from Google Sheets.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="legend">
+  <div class="legend-item"><span style="color:var(--gold);font-weight:800">🥇</span> 1st place</div>
+  <div class="legend-item"><span style="color:#c0c0c0;font-weight:800">🥈</span> 2nd place</div>
+  <div class="legend-item"><span style="color:#cd7f32;font-weight:800">🥉</span> 3rd place</div>
+  <div class="legend-item" style="margin-left:1rem; color:#8899aa">Click a row to expand squad · Points update weekly</div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  initStandingsPage();
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WC 2026 Pool — Player Groups</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="badge">WC 2026</span>
+    <h1>Fantasy Pool</h1>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Groups</a>
+    <a href="standings.html">Standings</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="tournament-banner">⚽ FIFA World Cup 2026 &nbsp;·&nbsp; USA / Canada / Mexico</div>
+  <h2>Player Groups</h2>
+  <p>20 groups of 4, ranked by 2025/26 club goals + assists. Pick one per group.</p>
+</div>
+
+<main class="groups-container">
+  <div id="groups-grid" class="groups-grid">
+    <div class="state-msg" id="loading-msg">
+      <div class="icon">⏳</div>
+      <h3>Loading players…</h3>
+      <p>Fetching data from Google Sheets or local file.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:#ff7777"></span> Forward</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#77aaff"></span> Midfielder</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#ffcc00"></span> Defender</div>
+  <div class="legend-item" style="margin-left:1rem; color:#8899aa">G+A = club goals + assists 2025/26 · Click any player for full stats</div>
+</footer>
+
+<!-- Player Card Modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-hero">
+      <div class="modal-flag" id="modal-flag">🏳</div>
+      <div class="modal-hero-info">
+        <h3 id="modal-name">Player Name</h3>
+        <div class="meta">
+          <span id="modal-nationality">Nation</span>
+          <span>·</span>
+          <span id="modal-club">Club</span>
+          <span class="pos-badge" id="modal-pos-badge">FW</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="stat-section">
+        <div class="stat-section-label">Club Season 2025/26</div>
+        <div class="stat-row">
+          <div class="stat-box goals">
+            <div class="val" id="modal-club-goals">0</div>
+            <div class="lbl">Goals</div>
+          </div>
+          <div class="stat-box assists">
+            <div class="val" id="modal-club-assists">0</div>
+            <div class="lbl">Assists</div>
+          </div>
+          <div class="stat-box highlight">
+            <div class="val" id="modal-club-ga">0</div>
+            <div class="lbl">G + A</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-section">
+        <div class="stat-section-label">World Cup 2026 — Tournament</div>
+        <div class="stat-row">
+          <div class="stat-box goals">
+            <div class="val" id="modal-wc-goals">0</div>
+            <div class="lbl">Goals</div>
+          </div>
+          <div class="stat-box assists">
+            <div class="val" id="modal-wc-assists">0</div>
+            <div class="lbl">Assists</div>
+          </div>
+          <div class="stat-box points">
+            <div class="val" id="modal-wc-pts">0</div>
+            <div class="lbl">Pool Pts</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:0.7rem; color:var(--grey); text-align:center; margin-top:0.5rem;">
+        Scoring: Goals = 2 pts &nbsp;·&nbsp; Assists = 1 pt
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <span class="modal-group-tag" id="modal-group-tag">Group 1</span>
+      <button class="modal-close" id="modal-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  initGroupsPage();
+</script>
+</body>
+</html>
