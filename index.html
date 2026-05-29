@@ -19,18 +19,54 @@
   </div>
 </nav>
 
-<div class="page-header">
-  <div class="tournament-banner">⚽ FIFA World Cup 2026 &nbsp;·&nbsp; USA / Canada / Mexico</div>
-  <h2>Player Groups</h2>
-  <p>20 groups of 4, ranked by 2025/26 club goals + assists. Pick one per group.</p>
+<!-- ─── ENTRY FORM ──────────────────────────────────────── -->
+<div class="entry-section">
+  <div class="entry-inner">
+
+    <div class="buy-in-banner">
+      <span class="buy-in-icon">💰</span>
+      <div>
+        <strong>$10 Buy-In Required</strong>
+        <span class="buy-in-sub">Pay your entry before submitting picks · See group chat for payment details</span>
+      </div>
+    </div>
+
+    <div class="entry-form" id="entry-form">
+      <div class="form-row">
+        <div class="field-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" placeholder="e.g. Caleb" autocomplete="given-name">
+        </div>
+        <div class="field-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" placeholder="e.g. Cousens" autocomplete="family-name">
+        </div>
+        <div class="field-group">
+          <label for="team-name">Team Name</label>
+          <input type="text" id="team-name" placeholder="e.g. The Goat Farm">
+        </div>
+      </div>
+      <p class="form-hint">Fill in your details, then pick one player from each group below.</p>
+    </div>
+
+  </div>
 </div>
 
+<!-- ─── GROUPS HEADER ──────────────────────────────────── -->
+<div class="page-subheader">
+  <div>
+    <h2>Player Groups</h2>
+    <p>16 groups of 4 · <strong>Pick one player per group</strong></p>
+  </div>
+  <div class="tournament-banner">⚽ FIFA World Cup 2026 &nbsp;·&nbsp; USA / Canada / Mexico</div>
+</div>
+
+<!-- ─── GROUPS GRID ────────────────────────────────────── -->
 <main class="groups-container">
   <div id="groups-grid" class="groups-grid">
     <div class="state-msg" id="loading-msg">
       <div class="icon">⏳</div>
       <h3>Loading players…</h3>
-      <p>Fetching data from Google Sheets or local file.</p>
     </div>
   </div>
 </main>
@@ -39,10 +75,31 @@
   <div class="legend-item"><span class="legend-dot" style="background:#ff7777"></span> Forward</div>
   <div class="legend-item"><span class="legend-dot" style="background:#77aaff"></span> Midfielder</div>
   <div class="legend-item"><span class="legend-dot" style="background:#ffcc00"></span> Defender</div>
-  <div class="legend-item" style="margin-left:1rem; color:#8899aa">G+A = club goals + assists 2025/26 · Click any player for full stats</div>
+  <div class="legend-item" style="margin-left:0.5rem"><span class="conf-dot" style="background:#4499ff"></span> UEFA</div>
+  <div class="legend-item"><span class="conf-dot" style="background:#00cc88"></span> CONMEBOL</div>
+  <div class="legend-item"><span class="conf-dot" style="background:#ff8833"></span> CONCACAF</div>
+  <div class="legend-item"><span class="conf-dot" style="background:#ffcc00"></span> CAF</div>
+  <div class="legend-item"><span class="conf-dot" style="background:#ff4455"></span> AFC</div>
+  <div class="legend-item" style="margin-left:1rem; color:#8899aa">Click any player to make your pick</div>
 </footer>
 
-<!-- Player Card Modal -->
+<!-- ─── STICKY SUBMIT BAR ──────────────────────────────── -->
+<div class="submit-bar" id="submit-bar">
+  <div class="pick-progress">
+    <div class="pick-count-label">
+      <span id="pick-count">0</span><span class="pick-total">/16</span>
+      <span class="pick-label">groups picked</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+  </div>
+  <button class="save-btn" id="save-btn" disabled>
+    🔒 Save & Lock Picks
+  </button>
+</div>
+
+<!-- ─── PLAYER CARD MODAL ──────────────────────────────── -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal">
     <div class="modal-hero">
@@ -59,22 +116,9 @@
     </div>
 
     <div class="modal-body">
-      <div class="stat-section">
-        <div class="stat-section-label">Club Season 2025/26</div>
-        <div class="stat-row">
-          <div class="stat-box goals">
-            <div class="val" id="modal-club-goals">0</div>
-            <div class="lbl">Goals</div>
-          </div>
-          <div class="stat-box assists">
-            <div class="val" id="modal-club-assists">0</div>
-            <div class="lbl">Assists</div>
-          </div>
-          <div class="stat-box highlight">
-            <div class="val" id="modal-club-ga">0</div>
-            <div class="lbl">G + A</div>
-          </div>
-        </div>
+      <div class="modal-conf-row">
+        <span class="modal-conf-badge" id="modal-conf-badge">UEFA</span>
+        <span class="modal-conf-label" id="modal-conf-label">Confederation</span>
       </div>
 
       <div class="stat-section">
@@ -95,15 +139,67 @@
         </div>
       </div>
 
-      <div style="font-size:0.7rem; color:var(--grey); text-align:center; margin-top:0.5rem;">
+      <div style="font-size:0.7rem; color:var(--grey); text-align:center; margin-top:0.75rem;">
         Scoring: Goals = 2 pts &nbsp;·&nbsp; Assists = 1 pt
       </div>
     </div>
 
     <div class="modal-footer">
       <span class="modal-group-tag" id="modal-group-tag">Group 1</span>
-      <button class="modal-close" id="modal-close">Close</button>
+      <div style="display:flex; gap:0.5rem; align-items:center;">
+        <button class="modal-close" id="modal-close">Close</button>
+        <button class="pick-btn" id="modal-pick-btn">✓ Pick this player</button>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- ─── CONFIRMATION DIALOG ────────────────────────────── -->
+<div class="modal-overlay" id="confirm-overlay">
+  <div class="modal confirm-modal" id="confirm-modal">
+    <div class="confirm-header">
+      <div class="confirm-icon">🔒</div>
+      <h3>Lock In Your Picks?</h3>
+      <p id="confirm-entry-name" class="confirm-name"></p>
+    </div>
+    <div class="confirm-body">
+      <div class="confirm-warning">
+        ⚠️ Once submitted, your picks <strong>cannot be changed</strong>. Make sure you're happy with all 16 selections before confirming.
+      </div>
+      <div id="confirm-picks-summary" class="confirm-picks-summary"></div>
+    </div>
+    <div class="confirm-footer">
+      <button class="modal-close" id="confirm-cancel">Go Back</button>
+      <button class="save-btn confirm-save-btn" id="confirm-submit">
+        ✓ Yes, Lock In My Picks
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SUCCESS OVERLAY ────────────────────────────────── -->
+<div class="success-overlay" id="success-overlay">
+  <div class="success-card">
+    <div class="success-icon">✅</div>
+    <h2>Picks Submitted!</h2>
+    <p id="success-team-name" class="success-team"></p>
+    <p class="success-msg">Your picks have been locked in. Good luck! 🏆</p>
+    <div class="success-reminder">
+      💰 Remember to pay your <strong>$10 buy-in</strong> if you haven't already.
+    </div>
+    <a href="standings.html" class="success-link">View Standings →</a>
+  </div>
+</div>
+
+<!-- ─── ALREADY SUBMITTED OVERLAY ─────────────────────── -->
+<div class="success-overlay" id="already-submitted-overlay" style="display:none">
+  <div class="success-card">
+    <div class="success-icon">🔒</div>
+    <h2>Already Submitted</h2>
+    <p id="already-team-name" class="success-team"></p>
+    <p class="success-msg">Your picks are locked in. No changes allowed.</p>
+    <div id="already-picks-summary" class="confirm-picks-summary" style="text-align:left; max-height:300px; overflow-y:auto;"></div>
+    <a href="standings.html" class="success-link" style="margin-top:1.5rem">View Standings →</a>
   </div>
 </div>
 
