@@ -1,6 +1,6 @@
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const SHEET_ID   = '1rM1hTKbNqIdBapbDk5HIW_iDckOqrYv6lAC2WIQzsrc';
-const SCRIPT_URL = 'https://script.google.com/a/macros/adamasesports.com/s/AKfycbwwPQvDzAeyh0rJyi1TCdxDX790xFTXKAIR3QsCko3SyHPyHs62dRyM5tN2-88bp12CEA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmK7Iy9DwOhSzTZMBd-a7JCP8PillOtcEJ82ZbP5UErxsDk3VZ5ID8DR9DQAb5E6NADw/exec';
 
 const csvUrl = (tab) =>
   `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
