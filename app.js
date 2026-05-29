@@ -1,6 +1,5 @@
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SHEET_ID   = '1rM1hTKbNqIdBapbDk5HIW_iDckOqrYv6lAC2WIQzsrc
-';  // ← your Google Sheet ID
+const SHEET_ID   = '1rM1hTKbNqIdBapbDk5HIW_iDckOqrYv6lAC2WIQzsrc';  // ← your Google Sheet ID
 const SCRIPT_URL = 'https://script.google.com/a/macros/adamasesports.com/s/AKfycbwwPQvDzAeyh0rJyi1TCdxDX790xFTXKAIR3QsCko3SyHPyHs62dRyM5tN2-88bp12CEA/exec';  // ← your Apps Script Web App URL
 
 const csvUrl = (tab) =>
