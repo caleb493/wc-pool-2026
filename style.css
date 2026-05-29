@@ -623,3 +623,522 @@ nav {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 99px; }
+
+/* ─── PAGE SUB-HEADER (groups page) ──────────────── */
+.page-subheader {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+}
+
+.page-subheader h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.page-subheader p {
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-top: 0.2rem;
+}
+
+/* ─── ENTRY SECTION ───────────────────────────────── */
+.entry-section {
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 2rem;
+}
+
+.entry-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buy-in-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,215,0,0.06));
+  border: 1px solid rgba(255,215,0,0.35);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+}
+
+.buy-in-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.buy-in-banner strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.buy-in-sub {
+  font-size: 0.78rem;
+  color: #cca800;
+  display: block;
+  margin-top: 0.1rem;
+}
+
+.entry-form { width: 100%; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 700px) { .form-row { grid-template-columns: 1fr; } }
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-group label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.field-group input {
+  background: var(--navy);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  transition: border-color 0.15s;
+  outline: none;
+  width: 100%;
+}
+
+.field-group input::placeholder { color: var(--grey); }
+
+.field-group input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(0,230,118,0.15);
+}
+
+.field-group input.input-error {
+  border-color: #ff7777;
+}
+
+.field-group input.input-ok {
+  border-color: var(--green);
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--grey);
+  margin-top: 0.6rem;
+}
+
+/* ─── PLAYER ROW SELECTION STATES ─────────────────── */
+.player-row {
+  position: relative;
+}
+
+.player-row.selected {
+  background: rgba(0, 230, 118, 0.1) !important;
+  border-left: 3px solid var(--green);
+}
+
+.player-row.selected .player-name {
+  color: var(--green);
+}
+
+.player-row.selected .player-ga {
+  color: var(--green);
+}
+
+/* Check indicator on selected player */
+.player-row.selected::after {
+  content: '✓';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--green);
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+/* Dim un-picked players when a group has a pick */
+.group-card.has-pick .player-row:not(.selected) {
+  opacity: 0.45;
+}
+
+.group-card.has-pick .player-row:not(.selected):hover {
+  opacity: 0.75;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+/* Group header check when complete */
+.group-header.complete .group-number {
+  color: var(--green);
+}
+
+.group-header.complete::after {
+  content: '✓';
+  color: var(--green);
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+/* ─── PICK BUTTON (in modal) ──────────────────────── */
+.pick-btn {
+  background: var(--green);
+  color: var(--navy);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.pick-btn:hover {
+  background: #00ff99;
+  transform: translateY(-1px);
+}
+
+.pick-btn.picked {
+  background: rgba(0,230,118,0.15);
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.pick-btn.change {
+  background: rgba(255,165,0,0.15);
+  color: #ffaa44;
+  border: 1px solid rgba(255,165,0,0.4);
+}
+
+/* ─── STICKY SUBMIT BAR ───────────────────────────── */
+.submit-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 32px rgba(0,0,0,0.4);
+}
+
+.pick-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.pick-count-label {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#pick-count {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.pick-total {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--grey);
+}
+
+.pick-label {
+  font-size: 0.8rem;
+  color: var(--grey);
+  margin-left: 0.35rem;
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--navy-light);
+  border-radius: 99px;
+  overflow: hidden;
+  min-width: 80px;
+  max-width: 300px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-dark), var(--green));
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+/* groups-container bottom padding so bar doesn't overlap content */
+.groups-container { padding-bottom: 80px; }
+
+.save-btn {
+  background: var(--green);
+  color: var(--navy);
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #00ff99;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,230,118,0.3);
+}
+
+.save-btn:disabled {
+  background: var(--navy-light);
+  color: var(--grey);
+  cursor: not-allowed;
+}
+
+/* ─── CONFIRMATION MODAL ──────────────────────────── */
+.confirm-modal {
+  max-width: 500px;
+}
+
+.confirm-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.confirm-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+.confirm-header h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.confirm-name {
+  color: var(--green);
+  font-weight: 700;
+  margin-top: 0.35rem;
+  font-size: 1rem;
+}
+
+.confirm-body { padding: 1.25rem 2rem; }
+
+.confirm-warning {
+  background: rgba(255,68,68,0.08);
+  border: 1px solid rgba(255,68,68,0.25);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  color: #ffaaaa;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.confirm-picks-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.4rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.confirm-pick-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--navy);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 7px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.72rem;
+}
+
+.confirm-pick-chip .cg {
+  font-size: 0.6rem;
+  color: var(--green);
+  font-weight: 700;
+  min-width: 22px;
+}
+
+.confirm-pick-chip .cf { font-size: 0.85rem; }
+.confirm-pick-chip .cn {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--grey-light);
+}
+
+.confirm-footer {
+  padding: 1rem 2rem 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.confirm-save-btn {
+  font-size: 0.9rem;
+  padding: 0.65rem 1.4rem;
+}
+
+/* ─── SUCCESS / ALREADY-SUBMITTED OVERLAY ─────────── */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.success-card {
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+}
+
+.success-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+.success-card h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.success-team {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.success-msg {
+  color: var(--grey);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.success-reminder {
+  background: rgba(255,215,0,0.1);
+  border: 1px solid rgba(255,215,0,0.3);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.success-link {
+  display: inline-block;
+  background: var(--green);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.success-link:hover {
+  background: #00ff99;
+  transform: translateY(-1px);
+}
+
+/* ─── SUBMITTING STATE ────────────────────────────── */
+.submit-bar.submitting .save-btn {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ─── HIDE SUCCESS OVERLAY BY DEFAULT ─────────────── */
+#success-overlay { display: none; }
+
+/* ─── MOBILE RESPONSIVE ───────────────────────────── */
+@media (max-width: 600px) {
+  .submit-bar { padding: 0.75rem 1rem; gap: 0.75rem; }
+  .progress-track { display: none; }
+  .pick-label { display: none; }
+  .save-btn { padding: 0.6rem 1rem; font-size: 0.82rem; }
+  .entry-section { padding: 1rem; }
+  .page-subheader { padding: 1rem; flex-direction: column; align-items: flex-start; }
+}
+
+/* --- CONFEDERATION BADGES --- */
+.player-conf-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.modal-conf-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--navy);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.modal-conf-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.modal-conf-label {
+  font-size: 0.8rem;
+  color: var(--grey);
+}
+
+.conf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
