@@ -1142,3 +1142,115 @@ nav {
   border-radius: 50%;
   display: inline-block;
 }
+
+/* --- TEAMS PAGE --- */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem 2rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.team-card {
+  background: var(--navy-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.team-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--navy-light);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.team-card-rank {
+  font-size: 1.4rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.team-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.team-card-team {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-card-person {
+  font-size: 0.78rem;
+  color: var(--grey);
+  margin-top: 1px;
+}
+
+.team-card-pts {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--green);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.team-pts-label {
+  font-size: 0.7rem;
+  color: var(--grey);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.team-picks-list {
+  padding: 0.5rem 0;
+}
+
+.team-pick {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 1.25rem;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.team-pick:last-child { border-bottom: none; }
+
+.team-pick.scoring { background: rgba(0,230,118,0.04); }
+
+.team-pick-group {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--green);
+  min-width: 26px;
+}
+
+.team-pick-flag { font-size: 1rem; }
+
+.team-pick-name {
+  flex: 1;
+  color: var(--grey-light);
+}
+
+.team-pick-pts {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(0,230,118,0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .teams-grid { padding: 1rem 1rem 4rem; grid-template-columns: 1fr; }
+}
