@@ -75,7 +75,7 @@ const PLAYERS_DATA = [
   {id:36, group:9, name:"Federico Valverde",nationality:"Uruguay",     flag:"🇺🇾", club:"Real Madrid",          position:"MF", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
 
   // GROUP 10
-  {id:37, group:10, name:"Neymar",          nationality:"Brazil",      flag:"🇧🇷", club:"Santos FC",            position:"FW", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
+  {id:37, group:10, name:"Hakan Çalhanoglu", nationality:"Turkey",      flag:"🇹🇷", club:"Inter Milan",          position:"MF", conf:"UEFA",     wcGoals:0, wcAssists:0},
   {id:38, group:10, name:"Mikel Oyarzabal", nationality:"Spain",       flag:"🇪🇸", club:"Real Sociedad",        position:"FW", conf:"UEFA",     wcGoals:0, wcAssists:0},
   {id:39, group:10, name:"Edin Dzeko",      nationality:"Bosnia",      flag:"🇧🇦", club:"Schalke 04",           position:"FW", conf:"UEFA",     wcGoals:0, wcAssists:0},
   {id:40, group:10, name:"James Rodriguez", nationality:"Colombia",    flag:"🇨🇴", club:"—",                    position:"MF", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
@@ -199,8 +199,9 @@ function parsePlayers(csvText) {
 
 function parseParticipants(csvText) {
   return parseCsv(csvText).map(r => ({
-    name:  r.name,
-    picks: Array.from({ length: TOTAL_GROUPS }, (_, i) => parseInt(r[`g${i + 1}`]) || null),
+    name:     `${r.first_name || ''} ${r.last_name || ''}`.trim() || r.name || 'Unknown',
+    teamName: r.team_name || '',
+    picks:    Array.from({ length: TOTAL_GROUPS }, (_, i) => parseInt(r[`g${i + 1}`]) || null),
   }));
 }
 
@@ -704,4 +705,77 @@ function renderStandings() {
 
   container.innerHTML = '';
   container.appendChild(table);
+}
+
+// ─── TEAMS PAGE ───────────────────────────────────────────────────────────────
+function initTeamsPage() {
+  Promise.all([loadPlayers(), loadParticipants()]).then(renderTeams);
+}
+
+function renderTeams() {
+  const container = document.getElementById('teams-content');
+
+  if (!SHEET_ID) {
+    container.innerHTML = `
+      <div class="state-msg">
+        <div class="icon">🔗</div>
+        <h3>Connect your Google Sheet</h3>
+        <p>Open <code>app.js</code> and set your <code>SHEET_ID</code>.</p>
+      </div>`;
+    return;
+  }
+
+  if (!PARTICIPANTS.length) {
+    container.innerHTML = `
+      <div class="state-msg">
+        <div class="icon">📭</div>
+        <h3>No entries yet</h3>
+        <p>Be the first to submit your picks!</p>
+      </div>`;
+    return;
+  }
+
+  const ranked = [...PARTICIPANTS]
+    .map(p => ({ ...p, total: participantPoints(p) }))
+    .sort((a, b) => b.total - a.total);
+
+  const grid = document.createElement('div');
+  grid.className = 'teams-grid';
+
+  ranked.forEach((participant, idx) => {
+    const card = document.createElement('div');
+    card.className = 'team-card';
+
+    const picksHtml = participant.picks.map((id, i) => {
+      const p = getPlayer(id);
+      if (!p) return `<div class="team-pick"><span class="team-pick-group">G${i+1}</span><span class="team-pick-name" style="color:var(--grey)">—</span></div>`;
+      const pts = playerPoints(p);
+      return `
+        <div class="team-pick${pts > 0 ? ' scoring' : ''}">
+          <span class="team-pick-group">G${i+1}</span>
+          <span class="team-pick-flag">${p.flag}</span>
+          <span class="team-pick-name">${p.name}</span>
+          ${pts > 0 ? `<span class="team-pick-pts">${pts}pt</span>` : ''}
+        </div>`;
+    }).join('');
+
+    const rankEmoji = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `#${idx+1}`;
+
+    card.innerHTML = `
+      <div class="team-card-header">
+        <div class="team-card-rank">${rankEmoji}</div>
+        <div class="team-card-info">
+          <div class="team-card-team">${participant.teamName || participant.name}</div>
+          <div class="team-card-person">${participant.name}</div>
+        </div>
+        <div class="team-card-pts">${participant.total}<span class="team-pts-label">pts</span></div>
+      </div>
+      <div class="team-picks-list">${picksHtml}</div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(grid);
 }
