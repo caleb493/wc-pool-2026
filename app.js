@@ -2,7 +2,16 @@
 const SHEET_ID   = '1rM1hTKbNqIdBapbDk5HIW_iDckOqrYv6lAC2WIQzsrc';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmK7Iy9DwOhSzTZMBd-a7JCP8PillOtcEJ82ZbP5UErxsDk3VZ5ID8DR9DQAb5E6NADw/exec';
 
-const scriptUrl = (action) => `${SCRIPT_URL}?action=${action}`;
+function fetchJsonp(action) {
+  return new Promise((resolve, reject) => {
+    const cb     = 'wcpool_' + Math.random().toString(36).slice(2);
+    const script = document.createElement('script');
+    window[cb]   = (data) => { delete window[cb]; script.remove(); resolve(data); };
+    script.onerror = () => { delete window[cb]; script.remove(); reject(new Error('JSONP failed')); };
+    script.src   = `${SCRIPT_URL}?action=${action}&callback=${cb}`;
+    document.head.appendChild(script);
+  });
+}
 
 const PTS_GOAL   = 2;
 const PTS_ASSIST = 1;
@@ -126,8 +135,7 @@ let activePlayerId = null;
 async function loadPlayers() {
   if (SCRIPT_URL) {
     try {
-      const res  = await fetch(scriptUrl('players'));
-      const data = await res.json();
+      const data = await fetchJsonp('players');
       PLAYERS = data.map(r => ({
         id:          parseInt(r.id),
         group:       parseInt(r.group),
@@ -151,8 +159,7 @@ async function loadPlayers() {
 async function loadParticipants() {
   if (!SCRIPT_URL) return;
   try {
-    const res  = await fetch(scriptUrl('participants'));
-    const data = await res.json();
+    const data = await fetchJsonp('participants');
     PARTICIPANTS = data.map(r => ({
       name:     `${r.first_name || ''} ${r.last_name || ''}`.trim() || 'Unknown',
       teamName: r.team_name || '',
