@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WC 2026 Pool — Teams</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="badge">WC 2026</span>
+    <h1>Fantasy Pool</h1>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Groups</a>
+    <a href="standings.html">Standings</a>
+    <a href="teams.html" class="active">Teams</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="tournament-banner">👥 All Squads — See Who Picked Who</div>
+  <h2>Teams</h2>
+  <p>Every participant's squad · ranked by current points</p>
+</div>
+
+<main class="standings-container">
+  <div id="teams-content">
+    <div class="state-msg" id="loading-msg">
+      <div class="icon">⏳</div>
+      <h3>Loading teams…</h3>
+      <p>Fetching data from Google Sheets.</p>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+<script>
+  initTeamsPage();
+</script>
+</body>
+</html>
