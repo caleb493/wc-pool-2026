@@ -2,8 +2,7 @@
 const SHEET_ID   = '1rM1hTKbNqIdBapbDk5HIW_iDckOqrYv6lAC2WIQzsrc';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmK7Iy9DwOhSzTZMBd-a7JCP8PillOtcEJ82ZbP5UErxsDk3VZ5ID8DR9DQAb5E6NADw/exec';
 
-const csvUrl = (tab) =>
-  `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
+const scriptUrl = (action) => `${SCRIPT_URL}?action=${action}`;
 
 const PTS_GOAL   = 2;
 const PTS_ASSIST = 1;
@@ -125,10 +124,22 @@ let activePlayerId = null;
 
 // ─── DATA LOADING ─────────────────────────────────────────────────────────────
 async function loadPlayers() {
-  if (SHEET_ID) {
+  if (SCRIPT_URL) {
     try {
-      const text = await fetchCsv(csvUrl('players'));
-      PLAYERS = parsePlayers(text);
+      const res  = await fetch(scriptUrl('players'));
+      const data = await res.json();
+      PLAYERS = data.map(r => ({
+        id:          parseInt(r.id),
+        group:       parseInt(r.group),
+        name:        r.name,
+        nationality: r.nationality,
+        flag:        r.flag,
+        club:        r.club,
+        position:    r.position,
+        conf:        r.conf || 'UEFA',
+        wcGoals:     parseInt(r.wc_goals)   || 0,
+        wcAssists:   parseInt(r.wc_assists) || 0,
+      }));
       return;
     } catch (e) {
       console.warn('Sheets fetch failed, using embedded data', e);
@@ -138,72 +149,20 @@ async function loadPlayers() {
 }
 
 async function loadParticipants() {
-  if (!SHEET_ID) return;
+  if (!SCRIPT_URL) return;
   try {
-    const text = await fetchCsv(csvUrl('participants'));
-    PARTICIPANTS = parseParticipants(text);
+    const res  = await fetch(scriptUrl('participants'));
+    const data = await res.json();
+    PARTICIPANTS = data.map(r => ({
+      name:     `${r.first_name || ''} ${r.last_name || ''}`.trim() || 'Unknown',
+      teamName: r.team_name || '',
+      picks:    Array.from({ length: TOTAL_GROUPS }, (_, i) => parseInt(r[`g${i + 1}`]) || null),
+    }));
   } catch (e) {
-    console.warn('Could not load participants sheet:', e);
+    console.warn('Could not load participants:', e);
   }
 }
 
-async function fetchCsv(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
-}
-
-// ─── CSV PARSERS ──────────────────────────────────────────────────────────────
-function parseCsvLine(line) {
-  const result = [];
-  let cur = '', inQuote = false;
-  for (let i = 0; i < line.length; i++) {
-    const ch = line[i];
-    if (ch === '"') {
-      if (inQuote && line[i + 1] === '"') { cur += '"'; i++; }
-      else inQuote = !inQuote;
-    } else if (ch === ',' && !inQuote) {
-      result.push(cur.trim()); cur = '';
-    } else { cur += ch; }
-  }
-  result.push(cur.trim());
-  return result;
-}
-
-function parseCsv(text) {
-  const lines = text.trim().split('\n').filter(Boolean);
-  if (lines.length < 2) return [];
-  const headers = parseCsvLine(lines[0]).map(h => h.toLowerCase().replace(/\s+/g, '_'));
-  return lines.slice(1).map(line => {
-    const vals = parseCsvLine(line);
-    const obj = {};
-    headers.forEach((h, i) => { obj[h] = vals[i] ?? ''; });
-    return obj;
-  });
-}
-
-function parsePlayers(csvText) {
-  return parseCsv(csvText).map(r => ({
-    id:          parseInt(r.id),
-    group:       parseInt(r.group),
-    name:        r.name,
-    nationality: r.nationality,
-    flag:        r.flag,
-    club:        r.club,
-    position:    r.position,
-    conf:        r.conf || 'UEFA',
-    wcGoals:     parseInt(r.wc_goals)   || 0,
-    wcAssists:   parseInt(r.wc_assists) || 0,
-  }));
-}
-
-function parseParticipants(csvText) {
-  return parseCsv(csvText).map(r => ({
-    name:     `${r.first_name || ''} ${r.last_name || ''}`.trim() || r.name || 'Unknown',
-    teamName: r.team_name || '',
-    picks:    Array.from({ length: TOTAL_GROUPS }, (_, i) => parseInt(r[`g${i + 1}`]) || null),
-  }));
-}
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function getPlayer(id)   { return PLAYERS.find(p => p.id === id); }
