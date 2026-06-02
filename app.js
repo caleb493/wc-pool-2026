@@ -47,13 +47,13 @@ const PLAYERS_DATA = [
   {id:12, group:3, name:"Florian Wirtz",    nationality:"Germany",     flag:"🇩🇪", club:"Bayern Munich",        position:"MF", conf:"UEFA",     wcGoals:0, wcAssists:0},
 
   // GROUP 4
-  {id:13, group:4, name:"Mohamed Salah",    nationality:"Egypt",       flag:"🇪🇬", club:"Liverpool",            position:"FW", conf:"CAF",      wcGoals:0, wcAssists:0},
+  {id:17, group:4, name:"Igor Thiago",      nationality:"Brazil",      flag:"🇧🇷", club:"Brentford",            position:"FW", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
   {id:14, group:4, name:"Ousmane Dembele",  nationality:"France",      flag:"🇫🇷", club:"Paris Saint-Germain",  position:"FW", conf:"UEFA",     wcGoals:0, wcAssists:0},
   {id:15, group:4, name:"Jamal Musiala",    nationality:"Germany",     flag:"🇩🇪", club:"Bayern Munich",        position:"MF", conf:"UEFA",     wcGoals:0, wcAssists:0},
   {id:16, group:4, name:"Bukayo Saka",      nationality:"England",     flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", club:"Arsenal",              position:"FW", conf:"UEFA",     wcGoals:0, wcAssists:0},
 
   // GROUP 5
-  {id:17, group:5, name:"Igor Thiago",      nationality:"Brazil",      flag:"🇧🇷", club:"Brentford",            position:"FW", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
+  {id:13, group:5, name:"Mohamed Salah",    nationality:"Egypt",       flag:"🇪🇬", club:"Liverpool",            position:"FW", conf:"CAF",      wcGoals:0, wcAssists:0},
   {id:18, group:5, name:"Cody Gakpo",       nationality:"Netherlands", flag:"🇳🇱", club:"Liverpool",            position:"FW", conf:"UEFA",     wcGoals:0, wcAssists:0},
   {id:19, group:5, name:"Lautaro Martinez", nationality:"Argentina",   flag:"🇦🇷", club:"Inter Milan",          position:"FW", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
   {id:20, group:5, name:"Luis Diaz",        nationality:"Colombia",    flag:"🇨🇴", club:"Borussia Dortmund",    position:"FW", conf:"CONMEBOL", wcGoals:0, wcAssists:0},
