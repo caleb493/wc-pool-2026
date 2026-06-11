@@ -1242,6 +1242,13 @@ nav {
   color: var(--grey-light);
 }
 
+.team-pick-pct {
+  font-size: 0.65rem;
+  color: var(--grey);
+  min-width: 30px;
+  text-align: right;
+}
+
 .team-pick-pts {
   font-size: 0.72rem;
   font-weight: 700;
