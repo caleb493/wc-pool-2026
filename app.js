@@ -705,6 +705,12 @@ function renderTeams() {
     .map(p => ({ ...p, total: participantPoints(p) }))
     .sort((a, b) => b.total - a.total);
 
+  const totalTeams = PARTICIPANTS.length;
+  const pickCount = {};
+  PARTICIPANTS.forEach(p => p.picks.forEach(id => {
+    if (id) pickCount[id] = (pickCount[id] || 0) + 1;
+  }));
+
   const grid = document.createElement('div');
   grid.className = 'teams-grid';
 
@@ -716,11 +722,13 @@ function renderTeams() {
       const p = getPlayer(id);
       if (!p) return `<div class="team-pick"><span class="team-pick-group">G${i+1}</span><span class="team-pick-name" style="color:var(--grey)">—</span></div>`;
       const pts = playerPoints(p);
+      const pct = Math.round((pickCount[id] || 0) / totalTeams * 100);
       return `
         <div class="team-pick${pts > 0 ? ' scoring' : ''}">
           <span class="team-pick-group">G${i+1}</span>
           <span class="team-pick-flag">${p.flag}</span>
           <span class="team-pick-name">${p.name}</span>
+          <span class="team-pick-pct">${pct}%</span>
           ${pts > 0 ? `<span class="team-pick-pts">${pts}pt</span>` : ''}
         </div>`;
     }).join('');
